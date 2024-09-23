@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.mjs"
+    "start": "node server/index.mjs",
+    "dev": "nodemon server/index/mjs" 
   },
   "dependencies": {
     "express": "^4.21.0",
