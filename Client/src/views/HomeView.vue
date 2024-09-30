@@ -3,6 +3,7 @@
 
 <template>
   <main>
-    <h1></h1>
+    <h1>Home</h1>
+    <p>Welcome to your vue.js app!</p>
   </main>
 </template>
