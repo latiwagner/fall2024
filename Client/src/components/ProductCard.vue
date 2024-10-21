@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { Product } from '@/models/products'
 
-defineProps<{ product: Product }>()
+const props = defineProps<{ product: Product }>()
+const { product } = props
 </script>
 
 <template>
@@ -11,8 +12,10 @@ defineProps<{ product: Product }>()
     </div>
     <div class="box-content">
       <h3>{{ product.title }}</h3>
+      <i>{{ product.brand }}</i>
       <p>{{ product.description }}</p>
-      <p>{{ product.price }}</p>
+      <p class="price">${{ product.price }}</p>
+      <button class="button is-success">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -20,5 +23,9 @@ defineProps<{ product: Product }>()
 <style scoped>
 h3 {
   font-weight: bold;
+}
+.price {
+  font-size: 1.75em;
+  float: right;
 }
 </style>
