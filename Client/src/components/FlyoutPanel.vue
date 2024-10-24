@@ -22,6 +22,7 @@ const props = defineProps<{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   z-index: 1000;
   transform: translateX(85%);
+  transition: transform 0.3s ease-in-out;
 }
 .flyout:hover,
 .flyout.isOpen {
