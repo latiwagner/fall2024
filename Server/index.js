@@ -10,6 +10,7 @@ app
   .get("/about", (req, res) => {
     res.send("about us");
   });
+  .use("/users", userController)
 // .get("/contacts", (req, res) => {
 //   res.send([
 //     { name: "john", phone: "555-555-5555" },
