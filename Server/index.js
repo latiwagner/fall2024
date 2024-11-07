@@ -1,16 +1,24 @@
 const express = require("express");
 const app = express();
+const userController = require("./controllers/users");
+const productController = require("./controllers/products");
 
 const PORT = 3000;
 
+// Middleware
+app.use(express.json())
+app.use(express.static(__dirname + "/dist"))
+
+// Controllers
 app
   .get("/", (req, res) => {
     res.send("hello world");
   })
   .get("/about", (req, res) => {
     res.send("about us");
-  });
-  .use("/users", userController)
+  })
+  .use("/users", userController);
+  .use("/products", productController)
 // .get("/contacts", (req, res) => {
 //   res.send([
 //     { name: "john", phone: "555-555-5555" },
