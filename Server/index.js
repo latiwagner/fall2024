@@ -19,6 +19,10 @@ app
   })
   .use("/api/v1/users", userController)
   .use("/api/v1/products", productController);
+
+  .get("*", (req, res) => {
+    res.sendFile(__dirname + "/dist/index.html")
+  })
 // .get("/contacts", (req, res) => {
 //   res.send([
 //     { name: "john", phone: "555-555-5555" },
