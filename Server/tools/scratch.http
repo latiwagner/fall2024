@@ -5,8 +5,8 @@ GET https://google.com
 
 ###
 POST https://dummyjson.com/api/v1/products
-
 MyHeader: MyValue
+
 {
     "title": "Green Lip Stick",
     "price": 12.99,
@@ -16,4 +16,25 @@ MyHeader: MyValue
 }
 
 ###
-http://localhost:3000/contacts
+GET http://localhost:3000/about
+
+###
+GET http://localhost:3000/api/v1/users
+
+### 
+GET http://localhost:3000/api/v1/users/30
+
+###
+DELETE http://localhost:3000/api/v1/users/1
+
+###
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "firstName": "Moshe",
+    "lastName": "Goldberg",
+    "age": 30,
+    "email": "goldberg@newpaltz.edu",
+    "password": "123456"
+}

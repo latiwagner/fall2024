@@ -11,18 +11,18 @@ app.use(express.static(__dirname + "/dist"));
 
 // Controllers
 app
-  .get("/", (req, res) => {
+  .get("/", (req, res, next) => {
     res.send("hello world");
   })
-  .get("/about", (req, res) => {
+  .get("/about", (req, res, next) => {
     res.send("about us");
   })
   .use("/api/v1/users", userController)
-  .use("/api/v1/products", productController);
+  .use("/api/v1/products", productController)
 
-  .get("*", (req, res) => {
-    res.sendFile(__dirname + "/dist/index.html")
-  })
+  .get("*", (req, res, next) => {
+    res.sendFile(__dirname + "/dist/index.html");
+  });
 // .get("/contacts", (req, res) => {
 //   res.send([
 //     { name: "john", phone: "555-555-5555" },
@@ -34,6 +34,9 @@ app
 //   res.send({ name: req.params.name, phone: "555-555-5555" });
 // });
 
-app.listen(PORT, () => {
+console.log("Step #1");
+app.listen(PORT, (err, data) => {
+  console.log("Step #2");
   console.log("server is running at http://localhost:" + PORT);
 });
+console.log("Step #3");
