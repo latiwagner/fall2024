@@ -23,16 +23,12 @@ app
   .get("*", (req, res, next) => {
     res.sendFile(__dirname + "/dist/index.html");
   });
-// .get("/contacts", (req, res) => {
-//   res.send([
-//     { name: "john", phone: "555-555-5555" },
-//     { name: "jim", phone: "555-555-5555" },
-//     { name: "jane", phone: "555-555-5555" },
-//   ]);
-// })
-// .get("/contacts/:name", (req, res) => {
-//   res.send({ name: req.params.name, phone: "555-555-5555" });
-// });
+
+//errors
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.status ?? 500).send(err);
+});
 
 console.log("Step #1");
 app.listen(PORT, (err, data) => {
