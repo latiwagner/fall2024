@@ -1,12 +1,24 @@
-import data from '../data/products.json'
-import type { DataListEnvelope } from './dataEnvelope'
+import type { DataEnvelope, DataListEnvelope } from './dataEnvelope'
+import { api } from './myFetch'
 
-export function getAll(): DataListEnvelope<Product> {
-  return {
-    data: data.items,
-    total: data.total,
-    isSuccess: true
-  }
+export async function getAll() {
+  return api<DataListEnvelope<Product>>('products')
+}
+
+export async function getById(id: number) {
+  return api<DataEnvelope<Product>>(`products/${id}`)
+}
+
+export function create(product: Product) {
+  return api<DataEnvelope<Product>>('products', product)
+}
+
+export function update(product: Product) {
+  return api<DataEnvelope<Product>>(`products/${product.id}`, product, 'PATCH')
+}
+
+export function remove(id: number) {
+  return api<DataEnvelope<Product>>(`products/${id}`, undefined, 'DELETE')
 }
 
 interface Review {
